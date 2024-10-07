@@ -23,6 +23,15 @@ const db = getFirestore();
 app.engine('handlebars', engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
+/*app.engine('handlebars', handlebars({
+    helpers: {
+        eq: function (a, b) {
+            return a === b;
+        }
+    
+    }
+}));*/
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -67,8 +76,9 @@ app.get("/editar/:id", function(req, res){
     })    
 })
 
-app.post('/editar', function(req, res) {
-    db.collection('clientes').doc(req.body.id).set({
+app.post('/editar', function (req, res) {
+    id = req.body.id
+    db.collection('clientes').doc(id).update({
         nome: req.body.nome,
         telefone: req.body.telefone,
         origem: req.body.origem,
@@ -82,7 +92,8 @@ app.post('/editar', function(req, res) {
 })
 
 app.get('/excluir/:id', async (req, res) => {
-    db.collection('clientes').doc(req.params.id).delete().then(function() {
+    id = req.params.id
+    db.collection('clientes').doc(id).delete().then(function() {
         res.redirect('/consulta')
     }).catch(function(error) {
       console.log("Erro ao deletar: " + error)

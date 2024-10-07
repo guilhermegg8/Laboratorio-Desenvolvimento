@@ -66,9 +66,10 @@ app.get('/consulta', function(req, res) {
     })
 })
 
-app.get("/editar/:id", function(req, res){
+app.get("/editar/:id", function (req, res) {
+    id = req.params.id
     var posts = []
-    db.collection('clientes').doc(req.params.id).get().then(function(doc) {
+    db.collection('clientes').doc(id).get().then(function(doc) {
         const data = doc.data()
         data.id = doc.id
         posts.push(data)

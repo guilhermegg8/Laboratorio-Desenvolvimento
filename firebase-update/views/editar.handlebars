@@ -49,7 +49,8 @@
             <div class="mb-3 text-start">
                 <label class="form-label">Nome:</label>
                 <input type="hidden" name="id" class="form-control" id="id" value={{id}}>
-                <input type="name" name="nome" class="form-control" id="nome" value={{nome}}>
+                <input type="text" name="nome" class="form-control" id="nome" value="{{nome}}">
+
             </div>
             <div class="mb-3 text-start">
                 <label class="form-label">Telefone:</label>
@@ -71,9 +72,9 @@
             </div>
             <div class="mb-3 text-start">
                 <label class="form-label">Observação:</label>
-                <textarea name="observacao" class="form-control" placeholder="" id="observacao" style="height: 100px"
-                    value={{observacao}}></textarea>
+                <textarea name="observacao" class="form-control" id="observacao" style="height: 100px">{{observacao}}</textarea>
             </div>
+
             <div class="mb-3 text-start">
                 <button type="submit" class="btn btn-primary">Editar</button>
             </div>

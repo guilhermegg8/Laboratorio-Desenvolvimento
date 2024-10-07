@@ -20,17 +20,16 @@ Handlebars.registerHelper('eq', function(a, b) {
 
 const db = getFirestore();
 
-app.engine('handlebars', engine({ defaultLayout: 'main' }));
+// app.engine('handlebars', engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-/*app.engine('handlebars', handlebars({
+app.engine('handlebars', handlebars({
     helpers: {
         eq: function (a, b) {
             return a === b;
         }
-    
     }
-}));*/
+}));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
